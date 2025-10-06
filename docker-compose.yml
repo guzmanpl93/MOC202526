@@ -1,28 +1,28 @@
-version: "3.9"
-services: 
-  web:
-    image: php:8.2-apache
+version: "3.9" #version de la sintaxis del docker-compose
+services: #Definicion de cada contenedor
+  web: #El de la pagina web, junto con Apache y PHP
+    image: php:8.2-apache #Imagen de Docker que se usa
     ports:
-      - "8080:80"
+      - "8080:80" #Este es el puerto donde se ejecuta en el pc, el 80 del contenedor al 8080 del pc
     volumes:
-      - "C:/Users/Tarde/Desktop/MOC202526:/var/www/html/"
-
-  bbdd:
-    image: mysql:5.7
+      - "C:/Users/Tarde/Desktop/MOC202526:/var/www/html/" #RUTA DEL ARCHIVO 
+        #TAMBIEN LA CARPETA RAIZ WEB
+  bbdd: #contenedor de la BBDD en MySQL
+    image: mysql:5.7 #Imagen de Docker que se usa
     environment:
-      MYSQL_ROOT_PASSWORD: bbdd
-      MYSQL_DATABASE: bbdd
+      MYSQL_ROOT_PASSWORD: bbdd #Contraseña
+      MYSQL_DATABASE: bbdd #Nombre
     volumes:
-      - bbdd_data:/var/lib/mysql
+      - bbdd_data:/var/lib/mysql #Ruta almacenamiento de datos
     
-  bbdd_cliente:
-      image: phpmyadmin/phpmyadmin
+  bbdd_cliente: #PHP MyAdmin
+      image: phpmyadmin/phpmyadmin #Imagen de Docker que se usa
       ports:
-      - "8081:80"
+      - "8081:80" #Este es el puerto donde se ejecuta en el pc, el 81 del contenedor al 8080 del pc
       environment:
-        PMA_HOST: bbdd
-        PMA_USER: root
-        PMA_PASSWORD: bbdd
+        PMA_HOST: bbdd #La base a la que se conecta
+        PMA_USER: root #Usuario
+        PMA_PASSWORD: bbdd #Contraseña
 
 volumes:
   bbdd_data:
