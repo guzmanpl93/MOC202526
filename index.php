@@ -39,7 +39,12 @@
 <html>
     <header>
         <style>
-            
+            .admin{
+                color: blue;
+            }
+            .cliente{
+                color: red;
+            }
         </style>
     </header>
     <body>
@@ -47,9 +52,10 @@
     <p>Bienvenido a la pagina</p>
 
     <?php foreach($usuarios as $owner):?> <!-- OJO! NECESITA HABER : DESPUES DE UN FOREACH-->
-        <p>Nombre: <?php echo $owner["nombre"];?></p>
-        <p>Correo: <?php echo $owner["correo"];?></p>
-        <p>Edad: <?php echo $owner["edad"];?></p>
+        <div class="<?php echo $owner["tipo_usuario"]?>">
+            <p>Nombre: <?php echo $owner["nombre"];?></p>
+            <p>Correo: <?php echo $owner["correo"];?></p>
+            <p>Edad: <?php echo $owner["edad"];?></p>
     <?php endforeach; ?>
 
     <!--<?php //if($usuarios[2]["tipo_usuario"] == "admin"): ?>
