@@ -37,6 +37,11 @@
 
 ?>
 <html>
+    <header>
+        <style>
+            
+        </style>
+    </header>
     <body>
     <h1>Hola</h1>
     <p>Bienvenido a la pagina</p>
