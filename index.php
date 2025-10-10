@@ -11,10 +11,10 @@
         "correo" => "ana@ana.es",
         "edad" => 23,
         "tipo_usuario" => "admin"
-    ];
+    ];*/
 
-    */
-    $usuarios2 = [
+
+    $usuarios = [
         [
        "nombre" => "Ana",
         "correo" => "ana@ana.es",
@@ -41,24 +41,32 @@
     <h1>Hola</h1>
     <p>Bienvenido a la pagina</p>
 
-    <?php foreach ($usuarios2 as $owner)?>
-        <p>Nombre: <?php echo $owner["nombre"]?></p>
-        <p>Correo: <?php echo $owner["correo"]?></p>
-        <p>Edad: <?php echo $owner["edad"]?></p>
-        
+    <?php foreach($usuarios as $owner):?> <!-- OJO! NECESITA HABER : DESPUES DE UN FOREACH-->
+        <p>Nombre: <?php echo $owner["nombre"];?></p>
+        <p>Correo: <?php echo $owner["correo"];?></p>
+        <p>Edad: <?php echo $owner["edad"];?></p>
+    <?php endforeach; ?>
 
+    <!--<?php //if($usuarios[2]["tipo_usuario"] == "admin"): ?>
+
+            <p style="color:light blue;"> Eres admin</p>
+            <p>Hola admin</p>
+        <?php// else: ?>
+            <p style="color:red;"> Eres cliente</p>
+            <p>Hola cliente</p>
+        <?php //endif; ?>-->
     <!--<h1>Usuario</h1>
-    <p>Nombre: <?php echo $usuarios2[2]["nombre"]?></p>
-    <p>Correo: <?php echo $usuarios2["correo"]?></p>
-    <p>Edad: <?php echo $usuarios2["edad"]?></p>
+    <p>Nombre: <?php //echo $usuarios[2]["nombre"]?></p>
+    <p>Correo: <?php// echo $usuarios["correo"]?></p>
+    <p>Edad: <?php// echo $usuarios["edad"]?></p>
 
-    <?php if($usuarios2[2]["tipo_usuario"] == "admin"): ?>
+    <?php //if($usuarios[2]["tipo_usuario"] == "admin"): ?>
         <p style="light blue;"> Eres admin</p>
 
-    <?php else: ?>
+    <?php// else: ?>
         <p style="red;"> Eres cliente</p>
 
-    <?php endif; ?>-->
+    <?php //endif; ?>-->
     </body>
 
 </html>
