@@ -11,9 +11,10 @@
         "correo" => "ana@ana.es",
         "edad" => 23,
         "tipo_usuario" => "admin"
-    ];*/
+    ];
+    
 
-
+*/
     $usuarios = [
         [
        "nombre" => "Ana",
@@ -35,6 +36,8 @@
         ]
         ];
 
+        $nombreIn = $_GET["nombre"] ?? ""; 
+
 ?>
 <html>
     <header>
@@ -52,6 +55,9 @@
     <p>Bienvenido a la pagina</p>
 
     <?php foreach($usuarios as $owner):?> <!-- OJO! NECESITA HABER : DESPUES DE UN FOREACH-->
+        <?php if($nombreIn == $usuario["nombre"]): ?>
+            <p style="color: lime">Este eres tu</p>
+            <?php endif?>
         <div class="<?php echo $owner["tipo_usuario"]?>">
             <p>Nombre: <?php echo $owner["nombre"];?></p>
             <p>Correo: <?php echo $owner["correo"];?></p>
@@ -65,8 +71,8 @@
         <?php// else: ?>
             <p style="color:red;"> Eres cliente</p>
             <p>Hola cliente</p>
-        <?php //endif; ?>-->
-    <!--<h1>Usuario</h1>
+        <?php //endif; ?>
+    <h1>Usuario</h1>
     <p>Nombre: <?php //echo $usuarios[2]["nombre"]?></p>
     <p>Correo: <?php// echo $usuarios["correo"]?></p>
     <p>Edad: <?php// echo $usuarios["edad"]?></p>
