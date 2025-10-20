@@ -7,7 +7,7 @@ if (isset($_GET["selector"])) {
 
 
 //Aqui se fija el genero de la pelicula
-switch ($selector){
+/*switch ($selector){
     case "biogf":
         $selector= "Biografía";
         break;
@@ -27,7 +27,7 @@ switch ($selector){
         $selector= "Fantasía";
         break;
     default: break;
-};
+}; */
 
 if (isset($_GET["date"])) {
     $date = $_GET["date"];

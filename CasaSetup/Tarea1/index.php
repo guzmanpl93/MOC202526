@@ -70,12 +70,12 @@ Permitir que el usuario filtre por más de un género (usando checkboxes en luga
                     <p>Selector de Género</p>
                     <select name="selector" id="selector">
                         <option value=""></option>
-                        <option value="biogf">Biografía</option>
-                        <option value="scifi">Ciencia ficción</option>
-                        <option value="roman">Romance</option>
-                        <option value="drama">Drama</option>
-                        <option value="scary">Thriller</option>
-                        <option value="fntsy">Fantasía</option>
+                        <option value="Biografía">Biografía</option>
+                        <option value="Ciencia ficción">Ciencia ficción</option>
+                        <option value="Romance">Romance</option>
+                        <option value="Drama">Drama</option>
+                        <option value="Thriller">Thriller</option>
+                        <option value="Fantasía">Fantasía</option>
                     </select>
                     <br>
                     <p>Fecha de Estreno</p>
