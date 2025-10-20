@@ -1,46 +1,12 @@
-<?php
-
-
-?>
-
 <html>
     <head>
-<!--
-Crea un fichero index.html con un formulario que contenga los siguientes campos:
-
-Un <select> para elegir un género (de los géneros disponibles en el array, por ejemplo: Drama, Ciencia ficción, Fantasía, Romance...).
-Un <input type="number"> para filtrar por año exacto.
-Un <input type="text"> para filtrar por director (puede ser parte del nombre).
-El formulario debe enviar los datos mediante el método GET al archivo catalogo.php.
-
-Utiliza el fichero catalogo.php facilitado y haz que:
-
-Reciba los filtros enviados desde el formulario a través de $_GET.
-Muestre en una tabla HTML únicamente las películas que cumplan los filtros seleccionados.
-Si no hay filtros, mostrará todas las películas.
-Si ningún resultado coincide, mostrará un mensaje del tipo: “No hay películas que cumplan los filtros seleccionados.”
-Pista para el filtrado por director:
-La función stripos() de PHP busca una cadena dentro de otra sin distinguir mayúsculas/minúsculas.
-Devuelve la posición donde se encuentra o false si no la encuentra.
-Ejemplo:
-
-stripos("Tim Burton", "burton")  devuelve 4
-stripos("Tim Burton", "spielberg")  devuelve false
-
-Ampliaciones opcionales:
-
-Mejorar el estilo de la web para darle la apariencia de un filtro de películas real (CSS al formulario, a la tabla generada tras la búsqueda, etc.)
-Añadir un campo de búsqueda de actores.
-Mostrar el número total de resultados encontrados.
-Permitir que el usuario filtre por más de un género (usando checkboxes en lugar de la lista en selector).
--->
         <style>
             #caja {
                 font-size:16px;
                 border: solid 2px #b98f40;
                 background-color: #f5bd55;
                 width: fit-content;
-                padding: 0% 2% 0% 2%;
+                padding: 2% 2% 0% 2%;
                 border-style: double;
                 text-align: center;
                 margin-top: 2%;
@@ -64,30 +30,30 @@ Permitir que el usuario filtre por más de un género (usando checkboxes en luga
         <title>Buscador de Peliculas</title>
     </head>
     <body>
-        <div id="big">
+        <div id="big">  
             <div id="caja">
-                <form action="catalogo.php" method="GET">
-                    <p>Selector de Género</p>
-                    <select name="selector" id="selector">
-                        <option value=""></option>
-                        <option value="Biografía">Biografía</option>
-                        <option value="Ciencia ficción">Ciencia ficción</option>
-                        <option value="Romance">Romance</option>
-                        <option value="Drama">Drama</option>
-                        <option value="Thriller">Thriller</option>
-                        <option value="Fantasía">Fantasía</option>
-                    </select>
-                    <br>
-                    <p>Fecha de Estreno</p>
-                    <input type="text" name="date">
-                    <br>
-                    <p>Director</p>
-                    <input type="text" name="name">
-                    <br>
-                    <br>
-                    <input type="submit">
-                </form>
+                    <form action="catalogo.php" method="GET">
+                        <select name="genero">
+                            <option value=""></option>
+                            <option value="Biografía">Biografía</option>
+                            <option value="Ciencia ficción">Ciencia ficción</option>
+                            <option value="Romance">Romance</option>
+                            <option value="Drama">Drama</option>
+                            <option value="Thriller">Thriller</option>
+                            <option value="Fantasía">Fantasía</option>
+                        </select>
+                        <br>
+                        <br>
+                        Año: <input type="number" name="año">
+                        <br><br>
+                        Titulo: <input type="text" name="titulo">
+                        <br><br>
+                        Director: <input type="text" name="director">
+                        <br><br>
+                        <input type="submit" value="enviar">
+                    </form>
             </div>
         </div>
     </body>
+
 </html>
