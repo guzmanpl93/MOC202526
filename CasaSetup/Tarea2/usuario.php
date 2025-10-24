@@ -14,5 +14,4 @@ class Usuario{
         echo "Usuario: ". $this->user . ", Contraseña: " . $this->pass;
     }
 }
-
 ?>

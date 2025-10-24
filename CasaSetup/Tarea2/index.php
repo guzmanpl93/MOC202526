@@ -4,9 +4,8 @@ include 'usuario.php';
 
 session_start();
 
-if(!isset($_SESSION['usuario'])){
+if(!(isset($_SESSION['usuario'])))
     header("Location: login.php");
-}
 
 ?>
 
@@ -64,6 +63,7 @@ if(!isset($_SESSION['usuario'])){
                         <br><br>
                         <input type="submit" value="enviar">
                     </form>
+                    <button onclick="location.href='logout.php'">Volver</button>
             </div>
         </div>
     </body>

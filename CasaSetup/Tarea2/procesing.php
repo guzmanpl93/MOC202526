@@ -2,8 +2,8 @@
 include 'usuario.php';
 session_start(); //Nota, si quieres que algo se ejecute, colocar encima session_start();
 
-$user = $_POST['user'];
-$pass = $_POST['pass'];
+$user = $_GET['user'];
+$pass = $_GET['pass'];
 $valido = false;
 
 $valores = [

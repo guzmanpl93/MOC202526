@@ -58,7 +58,7 @@ if(isset($_SESSION['usuario'])){
     <body>
         <div id="big">  
             <div id="caja">
-                    <form action="procesing.php" method="POST">
+                    <form action="procesing.php" method="GET">
                         Usuario: <input type="text" name="user">
                         <br><br>
                         Contraseña: <input type="text" name="pass">

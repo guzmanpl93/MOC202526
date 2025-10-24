@@ -21,8 +21,8 @@ $año = $_GET["año"] ?? "";
 $director = $_GET["director"] ?? "";
 $genero = $_GET["genero"] ?? "";
 
-
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
     <head>
