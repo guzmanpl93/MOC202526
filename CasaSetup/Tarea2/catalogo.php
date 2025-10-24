@@ -1,4 +1,5 @@
 <?php
+include usuario.php;
 
 $peliculas = [
     ["titulo" => "El editor de libros", "año" => 2016, "director" => "Michael Grandage", "actores" => "Colin Firth, Jude Law, Nicole Kidman", "genero" => "Biografía"],
