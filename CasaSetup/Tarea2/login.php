@@ -1,8 +1,6 @@
 <?php
 /* 
-Lo hecho en clase respecto a guardar las preferencias de filtrado.
     Guardar los filtros en sesión cuando llegan a la página catalogo.php.
-    Mostrar los filtros (si los hay en sesión) siempre que se muestra la página de filtrado.
 En catalogo.php:
     Almacena los filtros en sesión (de tal forma que, la próxima vez que el usuario viaje a la página, tenga esa información precargada).*/
 
@@ -52,7 +50,7 @@ if(isset($_SESSION['usuario'])){
                     <form action="procesing.php" method="GET">
                         Usuario: <input type="text" name="user">
                         <br><br>
-                        Contraseña: <input type="text" name="pass">
+                        Contraseña: <input type="password" name="pass">
                         <br><br>
                         <input type="submit" value="enviar">
                     </form>
