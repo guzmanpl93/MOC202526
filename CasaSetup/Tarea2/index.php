@@ -7,6 +7,11 @@ session_start();
 if(!(isset($_SESSION['usuario'])))
     header("Location: login.php");
 
+
+$titulo = $_SESSION["titulo"] ?? "";
+$director = $_SESSION["director"] ?? "";
+$año = $_SESSION["año"] ?? "";
+
 ?>
 
 <html>
@@ -46,6 +51,7 @@ if(!(isset($_SESSION['usuario'])))
                 ¡Bienvenido, <?php echo $_SESSION['usuario'] . "!";?>
                 <br><br>
                     <form action="catalogo.php" method="GET">
+        <!--Selected en option?-->
                         <select name="genero">
                             <option value=""></option>
                             <option value="Biografía">Biografía</option>
@@ -57,11 +63,11 @@ if(!(isset($_SESSION['usuario'])))
                         </select>
                         <br>
                         <br>
-                        Año: <input type="number" name="año">
+                        Año: <input type="number" name="año" value="<?php echo $director;?>">
                         <br><br>
-                        Titulo: <input type="text" name="titulo">
+                        Titulo: <input type="text" name="titulo" value="<?php echo $titulo;?>">
                         <br><br>
-                        Director: <input type="text" name="director">
+                        Director: <input type="text" name="director" value="<?php echo $director;?>">
                         <br><br>
                         <input type="submit" value="Filtrar">
                     </form>

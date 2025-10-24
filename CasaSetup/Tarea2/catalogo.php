@@ -1,6 +1,8 @@
 <?php
 include 'usuario.php';
 
+session_start();
+
 $peliculas = [
     ["titulo" => "El editor de libros", "año" => 2016, "director" => "Michael Grandage", "actores" => "Colin Firth, Jude Law, Nicole Kidman", "genero" => "Biografía"],
     ["titulo" => "Un amor entre dos mundos", "año" => 2012, "director" => "Juan Diego Solanas", "actores" => "Jim Sturgess, Kirsten Dunst, Timothy Spall", "genero" => "Ciencia ficción"],
@@ -20,6 +22,11 @@ $titulo = $_GET["titulo"] ?? "";
 $año = $_GET["año"] ?? "";
 $director = $_GET["director"] ?? "";
 $genero = $_GET["genero"] ?? "";
+
+$_SESSION["titulo"] = $titulo;
+$_SESSION["año"] = $año;
+$_SESSION["director"] = $director;
+
 $i =0;
 ?>
 
