@@ -1,5 +1,5 @@
 <?php
-include usuario.php;
+include 'usuario.php';
 
 $peliculas = [
     ["titulo" => "El editor de libros", "año" => 2016, "director" => "Michael Grandage", "actores" => "Colin Firth, Jude Law, Nicole Kidman", "genero" => "Biografía"],
@@ -20,7 +20,7 @@ $titulo = $_GET["titulo"] ?? "";
 $año = $_GET["año"] ?? "";
 $director = $_GET["director"] ?? "";
 $genero = $_GET["genero"] ?? "";
-
+$i =0;
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +34,7 @@ $genero = $_GET["genero"] ?? "";
                 border: solid 2px #b98f40;
                 background-color: #f5bd55;
                 width: fit-content;
-                padding: 2% 2% 0% 2%;
+                padding: 2% 2% 2% 2%;
                 border-style: double;
                 text-align: center;
                 margin-top: 2%;
@@ -59,7 +59,45 @@ $genero = $_GET["genero"] ?? "";
     <body id="big">
 
     <h1>Catálogo de películas</h1>
-
+        <div id="caja">
+            Filtros actuales:<br>
+            <?php
+            $unit =0;
+                for ($i =0; $i< 4; $i++) {
+                    switch ($i){
+                        default: 
+                            if (!($titulo == "")){
+                                echo "Título: " . $titulo . "<br>";
+                            $unit++;
+                            }
+                            break;
+                        case 1:
+                            if (!($año == "")){
+                                echo "Año: " . $año . "<br>";
+                            $unit++;
+                            }
+                            break;
+                        case 2:
+                            if (!($director == "")){
+                                echo "Director: " . $director . "<br>";
+                                $unit++;
+                            }
+                            break;
+                        case 3:
+                            if (!($genero == "")){
+                                echo "Género: " . $genero . "<br>";
+                                $unit++;
+                            }
+                            break;
+                    }
+                    
+                }
+                if ($unit ==0){
+                    echo "<br>No hay filtros actualmente seleccionados";
+                }
+                ?>
+        </div>
+        <br>
     <table border="1">
         <tr>
             <th>Título</th>
@@ -90,8 +128,11 @@ $genero = $_GET["genero"] ?? "";
             <td>Numero de resultados: <?php echo $contador;?></td>
         <?php endif;?>
     </table>
+    
+    <br>
+    <button onclick="location.href='index.php'">Ir al filtro</button><br><br>
+    <button onclick="location.href='logout.php'">Log Out</button>
 
-    <button onclick="location.href='index.php'">Volver</button>
     <!--<a href="filtro.php">Volver al formulario</a>-->
 
     </body>

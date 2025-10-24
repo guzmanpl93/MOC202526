@@ -1,10 +1,4 @@
 <?php
-/* 
-Lo hecho en clase respecto a guardar las preferencias de filtrado.
-    Guardar los filtros en sesión cuando llegan a la página catalogo.php.
-    Mostrar los filtros (si los hay en sesión) siempre que se muestra la página de filtrado.
-En catalogo.php:
-    Almacena los filtros en sesión (de tal forma que, la próxima vez que el usuario viaje a la página, tenga esa información precargada).*/
 
 session_start();
 
@@ -23,7 +17,7 @@ if(isset($_SESSION['usuario'])){
                 border: solid 2px #b98f40;
                 background-color: #f5bd55;
                 width: fit-content;
-                padding: 2% 2% 0% 2%;
+                padding: 0% 2% 0% 2%;
                 border-style: double;
                 text-align: center;
                 margin-top: 2%;
@@ -49,6 +43,7 @@ if(isset($_SESSION['usuario'])){
     <body>
         <div id="big">  
             <div id="caja">
+                <p style="color:red">¡Error!<br>Usuario u contraseña incorrectas.</p>
                     <form action="procesing.php" method="GET">
                         Usuario: <input type="text" name="user">
                         <br><br>
@@ -61,5 +56,3 @@ if(isset($_SESSION['usuario'])){
     </body>
 
 </html>
-
-?>

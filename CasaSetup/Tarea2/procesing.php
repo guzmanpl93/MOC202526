@@ -18,16 +18,11 @@ foreach($valores as $values){
     }
 }
 
-
-$usuario = new Usuario($user, $pass);
-
-
 if($valido) {
     $_SESSION['usuario'] = $user; //Para almacenar el ususario
-    $_SESSION['user'] = serialize($usuario);
-    header("Location: index.php");
+    header("Location: catalogo.php");
 } else {
-    header("Location: login.php");
+    header("Location: loginErr.php");
 }
 
 ?>

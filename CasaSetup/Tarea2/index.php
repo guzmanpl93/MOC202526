@@ -17,7 +17,7 @@ if(!(isset($_SESSION['usuario'])))
                 border: solid 2px #b98f40;
                 background-color: #f5bd55;
                 width: fit-content;
-                padding: 2% 2% 0% 2%;
+                padding: 2% 2% 1% 2%;
                 border-style: double;
                 text-align: center;
                 margin-top: 2%;
@@ -43,6 +43,8 @@ if(!(isset($_SESSION['usuario'])))
     <body>
         <div id="big">  
             <div id="caja">
+                ¡Bienvenido, <?php echo $_SESSION['usuario'] . "!";?>
+                <br><br>
                     <form action="catalogo.php" method="GET">
                         <select name="genero">
                             <option value=""></option>
@@ -61,9 +63,9 @@ if(!(isset($_SESSION['usuario'])))
                         <br><br>
                         Director: <input type="text" name="director">
                         <br><br>
-                        <input type="submit" value="enviar">
+                        <input type="submit" value="Filtrar">
                     </form>
-                    <button onclick="location.href='logout.php'">Volver</button>
+                    <button onclick="location.href='logout.php'">Log Out</button>
             </div>
         </div>
     </body>
