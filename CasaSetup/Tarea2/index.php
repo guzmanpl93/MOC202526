@@ -11,6 +11,7 @@ if(!(isset($_SESSION['usuario'])))
 $titulo = $_SESSION["titulo"] ?? "";
 $director = $_SESSION["director"] ?? "";
 $año = $_SESSION["año"] ?? "";
+$genero = $_SESSION["genero"] ?? "";
 
 ?>
 
@@ -53,13 +54,13 @@ $año = $_SESSION["año"] ?? "";
                     <form action="catalogo.php" method="GET">
         <!--Selected en option?-->
                         <select name="genero">
-                            <option value=""></option>
-                            <option value="Biografía">Biografía</option>
-                            <option value="Ciencia ficción">Ciencia ficción</option>
-                            <option value="Romance">Romance</option>
-                            <option value="Drama">Drama</option>
-                            <option value="Thriller">Thriller</option>
-                            <option value="Fantasía">Fantasía</option>
+                            <option value="" <?php if ($genero == "") echo "selected"?>></option>
+                            <option value="Biografía" <?php if ($genero == "Biografía") echo "selected"?>>Biografía</option>
+                            <option value="Ciencia ficción" <?php if ($genero == "Ciencia") echo "selected"?>>Ciencia ficción</option>
+                            <option value="Romance" <?php if ($genero == "Romance") echo "selected"?>>Romance</option>
+                            <option value="Drama" <?php if ($genero == "Drama") echo "selected"?>>Drama</option>
+                            <option value="Thriller" <?php if ($genero == "Thriller") echo "selected"?>>Thriller</option>
+                            <option value="Fantasía" <?php if ($genero == "Fantasía") echo "selected"?>>Fantasía</option>
                         </select>
                         <br>
                         <br>

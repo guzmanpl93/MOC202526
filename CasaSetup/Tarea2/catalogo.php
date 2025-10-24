@@ -26,6 +26,7 @@ $genero = $_GET["genero"] ?? "";
 $_SESSION["titulo"] = $titulo;
 $_SESSION["año"] = $año;
 $_SESSION["director"] = $director;
+$_SESSION["genero"] = $genero;
 
 $i =0;
 ?>
