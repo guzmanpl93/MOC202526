@@ -6,6 +6,8 @@ if(isset($_SESSION['usuario'])){
     header("Location: index.php");
 }
 
+require_once 'trad/internacionalizacion.php';
+
 ?>
 
 

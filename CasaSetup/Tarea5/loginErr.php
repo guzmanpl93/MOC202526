@@ -1,10 +1,4 @@
 <?php
-/* 
-    Guardar los filtros en sesión cuando llegan a la página catalogo.php.
-En catalogo.php:
-    Almacena los filtros en sesión (de tal forma que, la próxima vez que el usuario viaje a la página, tenga esa información precargada).*/
-
-    
 
 session_start();
 
@@ -12,7 +6,7 @@ if(isset($_SESSION['usuario'])){
     header("Location: index.php");
 }
 
-include_once 'trad/internacionalizacion.php';
+require_once 'trad/internacionalizacion.php';
 
 ?>
 
@@ -25,7 +19,7 @@ include_once 'trad/internacionalizacion.php';
                 border: solid 2px #b98f40;
                 background-color: #f5bd55;
                 width: fit-content;
-                padding: 2% 2% 0% 2%;
+                padding: 0% 2% 0% 2%;
                 border-style: double;
                 text-align: center;
                 margin-top: 2%;
@@ -51,6 +45,7 @@ include_once 'trad/internacionalizacion.php';
     <body>
         <div id="big">  
             <div id="caja">
+                <p style="color:red"><?php echo $traducciones["error"]?></p>
                     <form action="procesing.php" method="GET">
                         <?php echo $traducciones["user"];?> <input type="text" name="user">
                         <br><br>
@@ -59,9 +54,12 @@ include_once 'trad/internacionalizacion.php';
                         <input type="submit" value="enviar">
                     </form>
             </div>
+            <div id="caja">
+                <p><?php echo $traducciones["language"]; ?></p>
+                <button onclick="location.href='?lang=es'">Español</button><br>
+                <button onclick="location.href='?lang=en'">English</button>
+            </div>
         </div>
     </body>
 
 </html>
-
-?>

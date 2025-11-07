@@ -59,6 +59,11 @@ include_once 'trad/internacionalizacion.php';
                         <input type="submit" value="enviar">
                     </form>
             </div>
+            <div id="caja">
+                <p><?php echo $traducciones["language"]; ?></p>
+                <button onclick="location.href='?lang=es'">Español</button><br>
+                <button onclick="location.href='?lang=en'">English</button>
+            </div>
         </div>
     </body>
 
