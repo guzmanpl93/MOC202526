@@ -4,11 +4,15 @@
 En catalogo.php:
     Almacena los filtros en sesión (de tal forma que, la próxima vez que el usuario viaje a la página, tenga esa información precargada).*/
 
+    
+
 session_start();
 
 if(isset($_SESSION['usuario'])){
     header("Location: index.php");
 }
+
+// include_once 'trad/internacionalizacion.php';
 
 ?>
 
@@ -48,9 +52,9 @@ if(isset($_SESSION['usuario'])){
         <div id="big">  
             <div id="caja">
                     <form action="procesing.php" method="GET">
-                        Usuario: <input type="text" name="user">
+                        <?php echo $traducciones["user"];?> <input type="text" name="user">
                         <br><br>
-                        Contraseña: <input type="password" name="pass">
+                        <?php echo $traducciones["psswd"];?> <input type="password" name="pass">
                         <br><br>
                         <input type="submit" value="enviar">
                     </form>

@@ -45,9 +45,9 @@ if(isset($_SESSION['usuario'])){
             <div id="caja">
                 <p style="color:red">¡Error!<br>Usuario u contraseña incorrectas.</p>
                     <form action="procesing.php" method="GET">
-                        Usuario: <input type="text" name="user">
+                        <?php echo $traducciones["user"];?> <input type="text" name="user">
                         <br><br>
-                        Contraseña: <input type="text" name="pass">
+                        <?php echo $traducciones["psswd"];?> <input type="password" name="pass">
                         <br><br>
                         <input type="submit" value="enviar">
                     </form>

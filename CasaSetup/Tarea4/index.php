@@ -1,10 +1,10 @@
 <?php
 
-include 'trad/internacionalizacion.php';
-
 include 'usuario.php';
 
 session_start();
+
+require_once 'trad/internacionalizacion.php';
 
 if(!(isset($_SESSION['usuario'])))
     header("Location: login.php");
@@ -53,7 +53,7 @@ $listaPelis = $_SESSION["peliculas"] ?? "";
     <body>
         <div id="big">  
             <div id="caja">
-                ¡Bienvenido, <?php echo $_SESSION['usuario'] . "!";?>
+                <?php echo $traducciones["title"];?>
                 <br><br>
                     <form action="catalogo.php" method="GET">
         <!--Selected en option?-->
@@ -68,24 +68,25 @@ $listaPelis = $_SESSION["peliculas"] ?? "";
                         </select>
                         <br>
                         <br>
-                        Año: <input type="number" name="año" value="<?php echo $director;?>">
+                        <?php echo $traducciones["ano"];?><input type="number" name="año" value="<?php echo $director;?>">
                         <br><br>
-                        Titulo: <input type="text" name="titulo" value="<?php echo $titulo;?>">
+                        <?php echo $traducciones["titulo"];?> <input type="text" name="titulo" value="<?php echo $titulo;?>">
                         <br><br>
-                        Director: <input type="text" name="director" value="<?php echo $director;?>">
+                        <?php echo $traducciones["director"];?> <input type="text" name="director" value="<?php echo $director;?>">
                         <br><br>
-                        <input type="submit" value="Filtrar">
+                        <input type="submit" value="<?php echo $traducciones["filtrar"];?>">
                     </form>
-                    <button onclick="location.href='nueva_pelicula.php'">Enviar sugerencia</button><br><br>
-                    <button onclick="location.href='logout.php'">Log Out</button>
+                    <button onclick="location.href='nueva_pelicula.php'"><?php echo $traducciones["sugerencias"];?></button><br><br>
+                    <button onclick="location.href='logout.php'"><?php echo $traducciones["logout"];?></button>
                     
             </div>
+            <div id="caja">
+                <p><?php echo $traducciones["language"]; ?>:</p>
+                <button onclick="location.href='?lang=es'">Español</button><br>
+                <button onclick="location.href='?lang=en'">English</button>
+            </div>
         </div>
-        <div>
-            <p>Idioma actual: <?php echo $traducciones["language"]; ?>:</p>
-            <a href="?lang=es">Español</a>
-            <a href="?lang=en">English</a>
-        </div>
+        
     </body>
 
 </html>

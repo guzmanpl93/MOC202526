@@ -1,6 +1,18 @@
 <?php
-	//session_start();
 
+    //Vale, aqui esta el error
+    //No entiendo por que, pero, la ruta que toma el require_once origina desde el archivo que 
+    //incluye este archivo, NO este archivo; por tanto, esto debe tener la ruta desde dicho archivo,
+    //no desde este
+    require_once 'usuario.php';
+    //require_once '../usuario'; ---> ASI NO
+
+    if(!(isset($_SESSION['usuario'])))
+        header("Location: login.php");
+    else if(isset($_SESSION['usuario'])){
+	    
+    }else
+        session_start();
     //Recuperamos el idioma por GET
     $lang = $_GET["lang"] ?? "es";
 
