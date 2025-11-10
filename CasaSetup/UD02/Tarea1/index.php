@@ -1,32 +1,16 @@
 <?php
 /*
-En este ejercicio vamos a seguir ampliando el proyecto del catálogo de películas, aplicando los nuevos
-conceptos que hemos aprendido sobre variables globales, paso por referencia, funciones, clases, objetos y métodos.
-
-El objetivo es modularizar y mejorar el código para hacerlo más reutilizable, estructurado 
-y profesional, sin perder la base de lo que ya tenemos (login, filtros y listado).
-
 - Variables globales -
-
-Crea una variable global que almacene el número de veces que el usuario ha visitado el catálogo durante su sesión.
-Incrementa dicha variable desde una función y guarda su nuevo valor en sesión.
-Muestra ese número al final del catálogo (por ejemplo: “Has visitado el catálogo 3 veces.”)..
-
+    -Mostrar el numero de veces que se accede al catalogo POR sesión (ha de incrementar) usando vars globales
 - Paso por referencia -
-
-Crea una función añadirPelicula que reciba el array de películas por referencia y la nueva película a añadir
-y lo actualice (es recoger en una función prácticamente la funcionalidad que teníamos antes en el código).
-Comprueba que, al añadir una película desde un formulario, esta se guarda en la sesión y se muestra al volver al catálogo.
-
+    -Funcion añadirPelicula(array de peliculas, nueva pelicula) 
+        \_ actualiza el array de peliculas y se muestra en el catalogo; cambios por sesion
 - Clases y objetos - 
-
-Crea una clase Película con las propiedades título, año, director, actores y género (toda aquella información que tenemos hasta ahora).
-Añade un constructor __construct para inicializar los valores.
-Crea un método mostrarPelicula() que devuelva la información de la película en formato HTML (una fila de tabla).
-Sustituye los arrays de películas por objetos de la nueva clase Película y adapta tu código para trabajar con ellos
-(en el foreach podrás llamar a esa nueva función mostrarPelícula).
-Añade más funciones a la clase si las consideras necesarias.
-
+    -Crear clase pelicula(título, año, director, actores y género)
+        |- Function __construct para inicializar los valores.
+        |-Function mostrarPelicula()
+        |    \_ que devuelva la información de la película en formato HTML (una fila de tabla).
+        |-Sustituir en el array por objetos clase Pelicula (crea un metodo mostrarPelícula())
 - Funciones personalizadas -
 También vamos a crear una nueva clase de utilidades con funciones estáticas para recoger algunas 
 de nuestras funciones (las que tú creas) y organizar el código. Dentro podría tener:
