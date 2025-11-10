@@ -7,7 +7,6 @@
         \_ actualiza el array de peliculas y se muestra en el catalogo; cambios por sesion
 - Clases y objetos - 
     -Crear clase pelicula(título, año, director, actores y género)
-        |- Function __construct para inicializar los valores.
         |-Function mostrarPelicula()
         |    \_ que devuelva la información de la película en formato HTML (una fila de tabla).
         |-Sustituir en el array por objetos clase Pelicula (crea un metodo mostrarPelícula())

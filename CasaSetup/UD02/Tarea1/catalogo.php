@@ -1,6 +1,8 @@
 <?php
 include 'usuario.php';
 
+include 'Peliculas.php';
+
 session_start();
 
 if (!(isset($_SESSION['usuario'])) || $_SESSION["peliculas"] == ""){
@@ -154,6 +156,7 @@ $i =0;
         <?php else:?>
             <td>Numero de resultados: <?php echo $contador;?></td>
         <?php endif;?>
+            <?php echo Pelicula::mostrarPeliculaSt("Jaws",1975,"Steven Spielberg", "Roy Scheider, Richard Dreyfuss, Robert Shaw","Thriller")?>
     </table>
     
     <br>
