@@ -1,33 +1,35 @@
 <?php
+session_start();
+
 include 'usuario.php';
 
 include 'Peliculas.php';
 
-session_start();
-
-if (!(isset($_SESSION['usuario'])) || $_SESSION["peliculas"] == ""){
+if (!(isset($_SESSION['peliculas'])) || $_SESSION["peliculas"] == ""){
     $peliculas = [
-        ["titulo" => "El editor de libros", "año" => 2016, "director" => "Michael Grandage", "actores" => "Colin Firth, Jude Law, Nicole Kidman", "genero" => "Biografía"],
-        ["titulo" => "Un amor entre dos mundos", "año" => 2012, "director" => "Juan Diego Solanas", "actores" => "Jim Sturgess, Kirsten Dunst, Timothy Spall", "genero" => "Ciencia ficción"],
-        ["titulo" => "Una cuestión de tiempo", "año" => 2013, "director" => "Richard Curtis", "actores" => "Domhnall Gleeson, Rachel McAdams, Bill Nighy", "genero" => "Romance"],
-        ["titulo" => "El indomable Will Hunting", "año" => 1997, "director" => "Gus Van Sant", "actores" => "Matt Damon, Robin Williams, Ben Affleck", "genero" => "Drama"],
-        ["titulo" => "Descubriendo a Forrester", "año" => 2000, "director" => "Gus Van Sant", "actores" => "Sean Connery, Rob Brown, F. Murray Abraham, Anna Paquin", "genero" => "Drama"],
-        ["titulo" => "El club de los poetas muertos", "año" => 1989, "director" => "Peter Weir", "actores" => "Robin Williams, Robert Sean Leonard, Ethan Hawke, Josh Charles", "genero" => "Drama"],
-        ["titulo" => "Gattaca", "año" => 1997, "director" => "Andrew Niccol", "actores" => "Ethan Hawke, Uma Thurman, Jude Law, Loren Dean", "genero" => "Ciencia ficción"],
-        ["titulo" => "In Time", "año" => 2011, "director" => "Andrew Niccol", "actores" => "Justin Timberlake, Amanda Seyfried, Vincent Kartheiser", "genero" => "Ciencia ficción"],
-        ["titulo" => "Una mente maravillosa", "año" => 2001, "director" => "Ron Howard", "actores" => "Russell Crowe, Ed Harris, Jennifer Connelly", "genero" => "Biografía"],
-        ["titulo" => "Big Fish", "año" => 2003, "director" => "Tim Burton", "actores" => "Ewan McGregor, Albert Finney, Billy Crudup, Jessica Lange", "genero" => "Drama"],
-        ["titulo" => "El club de la lucha", "año" => 1999, "director" => "David Fincher", "actores" => "Edward Norton, Brad Pitt, Helena Bonham Carter", "genero" => "Thriller"],
-        ["titulo" => "Eduardo Manostijeras", "año" => 1990, "director" => "Tim Burton", "actores" => "Johnny Depp, Winona Ryder, Dianne Wiest", "genero" => "Fantasía"]
+        new Pelicula("El editor de libros", 2016, "Michael Grandage", "Colin Firth, Jude Law, Nicole Kidman", "Biografía"),
+        new Pelicula("Un amor entre dos mundos", 2012, "Juan Diego Solanas", "Jim Sturgess, Kirsten Dunst, Timothy Spall", "Ciencia ficción"),
+        new Pelicula("Una cuestión de tiempo", 2013, "Richard Curtis", "Domhnall Gleeson, Rachel McAdams, Bill Nighy", "Romance"),
+        new Pelicula("El indomable Will Hunting", 1997, "Gus Van Sant", "Matt Damon, Robin Williams, Ben Affleck", "Drama"),
+        new Pelicula("Descubriendo a Forrester", 2000, "Gus Van Sant", "Sean Connery, Rob Brown, F. Murray Abraham, Anna Paquin", "Drama"),
+        new Pelicula("El club de los poetas muertos", 1989, "Peter Weir", "Robin Williams, Robert Sean Leonard, Ethan Hawke, Josh Charles", "Drama"),
+        new Pelicula("Gattaca", 1997, "Andrew Niccol", "Ethan Hawke, Uma Thurman, Jude Law, Loren Dean", "Ciencia ficción"),
+        new Pelicula("In Time", 2011, "Andrew Niccol", "Justin Timberlake, Amanda Seyfried, Vincent Kartheiser", "Ciencia ficción"),
+        new Pelicula("Una mente maravillosa", 2001, "Ron Howard", "Russell Crowe, Ed Harris, Jennifer Connelly", "Biografía"),
+        new Pelicula("Big Fish", 2003, "Tim Burton", "Ewan McGregor, Albert Finney, Billy Crudup, Jessica Lange", "Drama"),
+        new Pelicula("El club de la lucha", 1999, "David Fincher", "Edward Norton, Brad Pitt, Helena Bonham Carter", "Thriller"),
+        new Pelicula("Eduardo Manostijeras", 1990, "Tim Burton", "Johnny Depp, Winona Ryder, Dianne Wiest", "Fantasía")
     ];
 } else {
-    $peliculas = $_SESSION["peliculas"];
+    $peliculas = unserialize($_SESSION["peliculas"]);
 }
 
 $titulo = $_GET["titulo"] ?? "";
 $año = $_GET["año"] ?? "";
 $director = $_GET["director"] ?? "";
 $genero = $_GET["genero"] ?? "";
+$accesoCat = $_SESSION["accesoCat"] ?? 0;
+$accesoCat++;
 
 $movie = $_POST["titulo"] ?? "";
 $year = $_POST["año"] ?? "";
@@ -39,15 +41,15 @@ if (($movie == "") && ($year == "") && ($lead == "") && ($genre == "")){
 } else if (($movie == "") || ($year == "") || ($lead == "") || ($genre == "")) {
     echo '<p style="color:red">ERROR<br>No se pudo cargar la nueva película';
 } else {
-    $peliculas[] = ["titulo" => $movie, "año" => $year, "director" => $lead, "actores" => "Colin Firth, Jude Law, Nicole Kidman", "genero" => $genre];
+    $peliculas[] = [new Pelicula($movie, $year, $lead, "Colin Firth, Jude Law, Nicole Kidman", $genre)];
 }
-
 
 $_SESSION["titulo"] = $titulo;
 $_SESSION["año"] = $año;
 $_SESSION["director"] = $director;
 $_SESSION["genero"] = $genero;
-$_SESSION["peliculas"] = $peliculas;
+$_SESSION["peliculas"] = serialize($peliculas);
+$_SESSION["accesoCat"] = $accesoCat++;
 
 $i =0;
 ?>
@@ -89,6 +91,8 @@ $i =0;
 
     <h1>Catálogo de películas</h1>
         <div id="caja">
+            Veces que has visitado esta pagina:
+            <?php echo $_SESSION["accesoCat"]?><br><br>
             Filtros actuales:<br>
             <?php
             $unit =0;
@@ -137,18 +141,12 @@ $i =0;
         </tr>
         <?php $contador =0;?>
         <?php foreach($peliculas as $pelicula): ?>
-            <?php if(($pelicula["genero"] == $genero || $genero == "") &&
-            ($pelicula["año"] == $año || $año == "") &&
-            (str_contains($pelicula["director"], $director) || $director == "") &&
-            ($pelicula["titulo"] == $titulo|| $titulo == "")): ?>
+            <?php if(($pelicula->getGenero() == $genero || $genero == "") &&
+            ($pelicula->getAno() == $año || $año == "") &&
+            (str_contains($pelicula->getDirector(), $director) || $director == "") &&
+            ($pelicula->getTitulo() == $titulo|| $titulo == "")): ?>
             <?php $contador++;?>
-            <tr>
-                <td><?= $pelicula["titulo"] ?></td><!-- Nota: Funciona como echo, pero puede no ser compatible con algunos servicios-->
-                <td><?= $pelicula["año"] ?></td>
-                <td><?= $pelicula["director"] ?></td>
-                <td><?= $pelicula["actores"] ?></td>
-                <td><?= $pelicula["genero"] ?></td>
-            </tr>
+            <?php echo $pelicula->mostrarPelicula();?>
             <?php endif;?>
         <?php endforeach;?>
         <?php if ($contador ==0):?>
@@ -156,7 +154,8 @@ $i =0;
         <?php else:?>
             <td>Numero de resultados: <?php echo $contador;?></td>
         <?php endif;?>
-            <?php echo Pelicula::mostrarPeliculaSt("Jaws",1975,"Steven Spielberg", "Roy Scheider, Richard Dreyfuss, Robert Shaw","Thriller")?>
+            <!-- Este codigo es de test
+            echo Pelicula::mostrarPeliculaSt("Jaws",1975,"Steven Spielberg", "Roy Scheider, Richard Dreyfuss, Robert Shaw","Thriller") -->
     </table>
     
     <br>

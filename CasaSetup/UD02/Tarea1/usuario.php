@@ -13,5 +13,9 @@ class Usuario{
     public function mostrarDetalles(){
         echo "Usuario: ". $this->user . ", Contraseña: " . $this->pass;
     }
+
+    public function catalogoVisitado(){
+        $visitas++;
+    }
 }
 ?>

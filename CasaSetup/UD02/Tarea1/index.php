@@ -6,10 +6,6 @@
     -Funcion añadirPelicula(array de peliculas, nueva pelicula) 
         \_ actualiza el array de peliculas y se muestra en el catalogo; cambios por sesion
 - Clases y objetos - 
-    -Crear clase pelicula(título, año, director, actores y género)
-        |-Function mostrarPelicula()
-        |    \_ que devuelva la información de la película en formato HTML (una fila de tabla).
-        |-Sustituir en el array por objetos clase Pelicula (crea un metodo mostrarPelícula())
 - Funciones personalizadas -
 También vamos a crear una nueva clase de utilidades con funciones estáticas para recoger algunas 
 de nuestras funciones (las que tú creas) y organizar el código. Dentro podría tener:
