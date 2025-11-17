@@ -47,4 +47,18 @@
         
     }
 
+    class Serie extends Pelicula{
+        public $num_temporadas;
+
+        public function __construct($titulo, $ano, $director, $actores, $genero, $num_temporadas){
+            Pelicula::__construct($titulo, $ano, $director, $actores, $genero);
+            $this->num_temporadas = $num_temporadas;
+        }
+
+        public function mostrarPeliculoa(){
+            return "<p>$this->pelicula de la serie</p>"
+        }
+
+    }
+
 ?>

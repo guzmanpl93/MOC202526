@@ -41,7 +41,7 @@ if (($movie == "") && ($year == "") && ($lead == "") && ($genre == "")){
 } else if (($movie == "") || ($year == "") || ($lead == "") || ($genre == "")) {
     echo '<p style="color:red">ERROR<br>No se pudo cargar la nueva película';
 } else {
-    $peliculas[] = [new Pelicula($movie, $year, $lead, "Colin Firth, Jude Law, Nicole Kidman", $genre)];
+    $peliculas[] = new Pelicula($movie, $year, $lead, "Colin Firth, Jude Law, Nicole Kidman", $genre);
 }
 
 $_SESSION["titulo"] = $titulo;
