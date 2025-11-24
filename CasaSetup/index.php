@@ -53,7 +53,8 @@
     <body>
     <h1>Hola</h1>
     <p>Bienvenido a la pagina</p>
-    <a href="/UD01/Tarea5/">Link</a>
+    <a href="/UD01/">ud1</a>
+    <a href="/UD02/">ud2</a>
     <?php foreach($usuarios as $owner):?> <!-- OJO! NECESITA HABER : DESPUES DE UN FOREACH-->
         <?php if($nombreIn == $usuario["nombre"]): ?>
             <p style="color: lime">Este eres tu</p>
