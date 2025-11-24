@@ -8,12 +8,13 @@ include 'Peliculas.php';
 if (!(isset($_SESSION['peliculas'])) || $_SESSION["peliculas"] == ""){
     $peliculas = [
         new Pelicula("El editor de libros", 2016, "Michael Grandage", "Colin Firth, Jude Law, Nicole Kidman", "Biografía"),
+        new Serie("Smiling friends", 2022, "Laura Dimaio", "Zach Hadel, Michael Cusack, Marc M.", "Drama", 3),
         new Pelicula("Un amor entre dos mundos", 2012, "Juan Diego Solanas", "Jim Sturgess, Kirsten Dunst, Timothy Spall", "Ciencia ficción"),
         new Pelicula("Una cuestión de tiempo", 2013, "Richard Curtis", "Domhnall Gleeson, Rachel McAdams, Bill Nighy", "Romance"),
         new Pelicula("El indomable Will Hunting", 1997, "Gus Van Sant", "Matt Damon, Robin Williams, Ben Affleck", "Drama"),
         new Pelicula("Descubriendo a Forrester", 2000, "Gus Van Sant", "Sean Connery, Rob Brown, F. Murray Abraham, Anna Paquin", "Drama"),
         new Pelicula("El club de los poetas muertos", 1989, "Peter Weir", "Robin Williams, Robert Sean Leonard, Ethan Hawke, Josh Charles", "Drama"),
-        new Pelicula("Gattaca", 1997, "Andrew Niccol", "Ethan Hawke, Uma Thurman, Jude Law, Loren Dean", "Ciencia ficción"),
+        new Cortometraje("Viaje a la luna", 1902, "Georges Méliès", "Georges Méliès, Bleuette Bernon, Jeanne d'Alcy", "Ciencia ficción", 12),
         new Pelicula("In Time", 2011, "Andrew Niccol", "Justin Timberlake, Amanda Seyfried, Vincent Kartheiser", "Ciencia ficción"),
         new Pelicula("Una mente maravillosa", 2001, "Ron Howard", "Russell Crowe, Ed Harris, Jennifer Connelly", "Biografía"),
         new Pelicula("Big Fish", 2003, "Tim Burton", "Ewan McGregor, Albert Finney, Billy Crudup, Jessica Lange", "Drama"),
@@ -159,6 +160,7 @@ $i =0;
             echo Pelicula::mostrarPeliculaSt("Jaws",1975,"Steven Spielberg", "Roy Scheider, Richard Dreyfuss, Robert Shaw","Thriller") -->
             <?php $test = new Cortometraje("Eduardo Manostijeras", 1990, "Tim Burton", "Johnny Depp, Winona Ryder, Dianne Wiest", "Fantasía", 35);
             echo $test->mostrarPelicula();
+            
             ?> 
     </table>
     
@@ -168,5 +170,8 @@ $i =0;
 
     <!--<a href="filtro.php">Volver al formulario</a>-->
 
+    <?php
+        $test2 = new Pelicula("Eduardo Manostijeras", 1990, "Tim Burton", "Johnny Depp, Winona Ryder, Dianne Wiest", "Fantasía");
+        echo $test->toJSON(); ?>
     </body>
 </html>

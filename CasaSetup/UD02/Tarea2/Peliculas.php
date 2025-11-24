@@ -1,31 +1,16 @@
 <?php
     
-// A partir del catálogo de películas (donde ya deberías trabajar con un array de objetos de tipo Película)
-// vas a ampliar la arquitectura del proyecto utilizando herencia, polimorfismo y traits.
-
-// A partir de esta clase base, crea al menos dos subclases que hereden de Pelicula.
-// Cada subclase debe representar un tipo concreto de contenido audiovisual. Por ejemplo:
-    // Serie
-    // Cortometraje
-// Cada subclase debe añadir al menos una propiedad o método adicional (por ejemplo número
-// de temporadas o capítulos), y opcionalmente redefinir un método heredado (polimorfismo).
-
-// Implementa un trait llamado Formatear que incluya uno o más métodos para dar formato a 
-// ciertos textos o valores, por ejemplo:
-    // devolver la película en formato HTML.
-    // devolver la película en formato JSON (para ellod eberíais usar la función json_encode que ofrece PHP).
-    // Las clases hijas deben usar este trait.
+    include 'traits.php';
 
 // Sustituye el array asociativo original para que cada objeto sea instancia de Pelicula
 // o de una de sus subclases. El catálogo deberá seguir funcionando como hasta ahora,
 // aplicando los filtros ya existentes.
 
-// Comprueba que el comportamiento polimórfico funciona: por ejemplo, invoca un método común
-// a todas las películas (mostrarPelicula()) y comprueba que las películas creadas con subclases 
-// pueden devolver resultados distintos gracias a métodos sobrescritos.
 
 
     class Pelicula{
+
+        use Formatear /*, Loquesea*/;
 
         public $titulo;
         public $ano;
@@ -80,6 +65,10 @@
             $this->num_temporadas = $num_temporadas;
         }
 
+        public function getNum_Temporadas(){
+            return $this->num_temporadas;
+        } 
+
         public function mostrarPelicula(){
             // return $this->pelicula;
             return parent::mostrarPelicula() . "<td>$this->num_temporadas minutos</td>";
@@ -93,6 +82,10 @@
         public function __construct($titulo, $ano, $director, $actores, $genero, $duracion){
             Pelicula::__construct($titulo, $ano, $director, $actores, $genero);
             $this->duracion = $duracion;
+        }
+
+        public function getDuracion(){
+            return $this->duracion;
         }
 
         public function mostrarPelicula(){

@@ -48,7 +48,7 @@ echo Asignatura::aplicador(); //Esto tambien funciona, pero tiene que ser static
 ?>
 <html>
 <body>
-    <a href="/UD02/Tarea1/">Tarea 1</a>
-    <a href="/UD02/Tarea2/">Tarea 2</a>
+    <a href="/CasaSetup/UD02/Tarea1/">Tarea 1</a>
+    <a href="/CasaSetup/UD02/Tarea2/">Tarea 2</a>
 </body>
 </html>
