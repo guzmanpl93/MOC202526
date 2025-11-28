@@ -1,7 +1,8 @@
 version: "3.9" #version de la sintaxis del docker-compose
 services: #Definicion de cada contenedor
   web: #El de la pagina web, junto con Apache y PHP
-    image: php:8.2-apache #Imagen de Docker que se usa
+    #image: php:8.2-apache #Imagen de Docker que se usa
+    build: .
     ports:
       - "8080:80" #Este es el puerto donde se ejecuta en el pc, el 80 del contenedor al 8080 del pc
     volumes:
